@@ -9,6 +9,10 @@ Happy Learning!
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Ubuntu&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
     <title>Vocabulary Practice</title>
     <style>
         @media only screen and (max-width: 600px) {
@@ -138,6 +142,8 @@ Happy Learning!
         }
 
         .sentences p {
+            font-family:Nunito;
+            font-size:22px;
             margin: 5px;
             color: #fff;
         }
@@ -165,13 +171,13 @@ Happy Learning!
         }
         
         #copyButton {
-            background-color: #4caf50;
-            color: #eeeeee;
+            background-color: #ddd;
+            color: #111;
         }
         
         #nightModeButton {
-            background-color: #73b4e9;
-            color: #eeeeee;
+            background-color: #ddd;
+            color: #111;
         }
         /* Add these styles for night mode for all generated words */
 body.night-mode .generated-word {
@@ -182,6 +188,24 @@ body.night-mode .generated-word {
 body.night-mode .generated-word.clicked {
     background-color: #ddd; /* Change this to the color you prefer for clicked words in night mode */
     color: #4a4a4a; /* Change this to the text color you prefer for clicked words in night mode */
+}
+
+/* Add these styles for the "More..." button */
+.sentences button {
+    background-color: #ddd;
+    color: #111;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+body.night-mode #copyButton,
+body.night-mode #nightModeButton,
+body.night-mode #generateButton {
+    background-color: #4a4a4a; /* Adjust the color you prefer for night mode */
+    color: #fff;
+    border:none;
 }
     </style>
 </head>
@@ -195,7 +219,7 @@ body.night-mode .generated-word.clicked {
         <form id="vocabularyForm">
             <label for="numberOfWords">How many Vocabulary words do you want to practice?</label>
             <input type="number" id="numberOfWords" placeholder="Enter a number" required>
-            <input type="button" value="Generate" onclick="generateWords()">
+            <input type="button" value="Generate" id="generateButton" onclick="generateWords()">
         </form>
         <!-- Container for displaying the result -->
         <div id="resultContainer" class="result-container"></div>
@@ -359,6 +383,8 @@ function shuffleArray(array) {
 }
 
 
+let currentClickedWord = null; // Variable to store the last clicked word
+
 function toggleSentences(word) {
     const sentencesContainer = document.querySelector(".sentences");
     const sentencesParagraph = document.querySelector(".sentences p");
@@ -370,28 +396,41 @@ function toggleSentences(word) {
         if (currentWordElement) {
             const isSameWord = currentWordElement.classList.contains("clicked");
 
-            // Remove "clicked" class from all words
             document.querySelectorAll(".generated-word").forEach(element => {
                 element.classList.remove("clicked");
             });
 
-            // Add "clicked" class only to the current word if it's not the same word
             if (!isSameWord) {
                 currentWordElement.classList.add("clicked");
-            }
 
-            // Display or hide the sentences container based on the "clicked" class
-            sentencesContainer.style.display = isSameWord ? "none" : "block";
-
-            if (!isSameWord) {
-                // Display all three sentences with some styling
+                sentencesContainer.style.display = "block";
                 sentencesParagraph.innerHTML = vocabularySentences[word].map(sentence => `<span class="sentence">${sentence}</span>`).join('<br>');
+
+                // Create or update the "More..." button
+                if (currentClickedWord !== word) {
+                    currentClickedWord = word;
+                    removeAllMoreButtons(); // Remove any existing "More..." buttons
+
+                    const moreButton = document.createElement("button");
+                    moreButton.textContent = "More...";
+                    moreButton.addEventListener("click", () => redirectToDictionary(word));
+                    sentencesContainer.appendChild(moreButton);
+                }
             } else {
-                // Hide sentences container if it's the same word
                 sentencesContainer.style.display = "none";
             }
         }
     }
+}
+
+function removeAllMoreButtons() {
+    const existingMoreButtons = document.querySelectorAll(".sentences button");
+    existingMoreButtons.forEach(button => button.remove());
+}
+
+function redirectToDictionary(word) {
+    let dictionaryURL = `https://www.ldoceonline.com/dictionary/${word.toLowerCase()}`;
+    window.open(dictionaryURL, '_blank');
 }
 
 
