@@ -25,7 +25,7 @@ Happy Learning!
 }
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #90CAF9;
+            background-color: #092635;
             margin: 0;
             padding: 0;
             display: flex;
@@ -59,7 +59,9 @@ Happy Learning!
          }
 
         h1 {
-            color: #90CAF9;
+            color: #fff;
+            font-family: Ubuntu;
+            font-size: 46px;
         }
 
         body.night-mode h1 {
@@ -69,7 +71,7 @@ Happy Learning!
             margin-top: 20px;
             border-radius: 8px; /* Adjust the value to control the roundness */
             background-color: #616161;
-            box-shadow: 0 0 10px #90CAF9;
+            box-shadow: 0 0 10px #1B4242;
             padding: 20px;
             text-align: center;
         }
@@ -80,6 +82,8 @@ Happy Learning!
 
         label {
             font-family: 'Open Sans';
+            font-size:16px;
+            color:#ddd;
             display: block;
             margin-bottom: 10px;
         }
@@ -449,7 +453,7 @@ function removeAllMoreButtons() {
 }
 
 function redirectToDictionary(word) {
-    let dictionaryURL = `https://www.ldoceonline.com/dictionary/${word.toLowerCase()}`;
+    let dictionaryURL = `https://dictionary.cambridge.org/dictionary/english/${word.toLowerCase()}`;
     window.open(dictionaryURL, '_blank');
 }
 
