@@ -117,6 +117,7 @@ Happy Learning!
 
 /* Add other night mode styles as needed */
 }
+
          body.night-mode {
           background-color: #040404;
           color: #434446;
@@ -143,6 +144,7 @@ Happy Learning!
         .sentences {
             display: none;
             margin-top: 10px;
+            margin-bottom: 20px; /* Adjust the margin as needed for extra space at the bottom */
         }
 
         .sentences p {
@@ -150,7 +152,12 @@ Happy Learning!
             font-size:22px;
             margin: 5px;
             color: #fff;
+            margin-bottom: 20px; /* Adjust the margin as needed for extra space at the bottom */
+            border-bottom: 1px solid #fff; /* Set the color of the line */
+            padding-bottom: 45px; /* Adjust the padding as needed */
+
         }
+
 
                 /* Add a wrapper for the buttons */
         #buttonWrapper {
@@ -165,7 +172,7 @@ Happy Learning!
         
         #copyButton,
         #nightModeButton {
-            margin-top: 10px;
+            margin-top: 20px;
             margin-right: 10px; /* Adjust the margin between buttons */
             font-size: 14px;
             padding: 6px;
@@ -190,23 +197,31 @@ body.night-mode .generated-word {
 }
         /* Add this style for night mode when a generated word is clicked */
 body.night-mode .generated-word.clicked {
-    background-color: #ddd; /* Change this to the color you prefer for clicked words in night mode */
-    color: #4a4a4a; /* Change this to the text color you prefer for clicked words in night mode */
+    background-color: #AAC4FF; /* Change this to the color you prefer for clicked words in night mode */
+    color: #000; /* Change this to the text color you prefer for clicked words in night mode */
+}
+
+/* Add this style for the white line between sentences and buttons */
+.more-buttons {
+    margin-top: 10px; /* Adjust the margin as needed */
 }
 
 /* Add these styles for the "More..." button */
 .sentences button {
-    background-color: #ddd;
-    color: #111;
+    background-color: #4a4a4a; /* Adjust the color you prefer for night mode */
+    color: #fff;
     border: none;
-    padding: 8px 16px;
-    margin-top: 10px;
+    padding: 6px 8px;
+    margin-top: 12px;
+    margin-bottom: 5px; /* Add margin-bottom to create space between buttons */
+    margin-right: 5px; /* Add margin-right to create space between buttons horizontally */
     border-radius: 4px;
     cursor: pointer;
 }
+
 body.night-mode #copyButton,
 body.night-mode #nightModeButton,
-body.night-mode #generateButton {
+body.night-mode #generateButton, {
     background-color: #4a4a4a; /* Adjust the color you prefer for night mode */
     color: #fff;
     border:none;
@@ -229,7 +244,9 @@ body.night-mode #generateButton {
         <div id="resultContainer" class="result-container"></div>
         <div class="sentences">
             <p></p>
-        </div>
+            </div>
+            <div class="more-buttons"></div>
+
     </div>
     <script>
         // List of vocabulary
@@ -377,15 +394,15 @@ body.night-mode #generateButton {
 "Sage": ["The sage advice from the experienced entrepreneur proved invaluable to the startup.", "In times of confusion, seeking the guidance of a sage figure can be beneficial.", "His words, though few, carried the weight of sage wisdom."],
 "Salubrious": ["The mountain retreat offered a salubrious environment, perfect for relaxation.", "Residents appreciate the salubrious effects of the nearby forest on air quality.", "The city planners aimed to create a salubrious urban space with parks and greenery."],
 "Sanction": ["The international community imposed sanctions on the rogue state for its aggressive actions.", "The board decided to sanction the proposed project due to financial concerns.", "Individuals involved in the scandal faced severe sanctions from the regulatory authorities."],
-"Satiated": ["After the hearty meal, he felt completely satiated and content.", "Her satiated expression indicated a fulfilling experience at the restaurant.", "The chef aimed to create dishes that left diners genuinely satiated."],
-"Saturated": ["The heavy rain saturated the soil, causing minor flooding in low-lying areas.", "The market became saturated with similar products, making competition fierce.", "The sponge became saturated with water after being left in the sink."],
-"Savored": ["She savored each bite of the decadent chocolate cake.", "As the sun set, they sat on the porch and savored the peaceful moment.", "The chef encouraged diners to savor the complex flavors of the dish."],
-"Shattered": ["The vase lay shattered on the floor, broken into countless pieces.", "His dreams seemed shattered after receiving the rejection letter.", "The loud noise shattered the calm of the peaceful evening."],
+"Satiate": ["After the hearty meal, he felt completely satiated and content.", "Her satiated expression indicated a fulfilling experience at the restaurant.", "The chef aimed to create dishes that left diners genuinely satiated."],
+"Saturate": ["The heavy rain saturated the soil, causing minor flooding in low-lying areas.", "The market became saturated with similar products, making competition fierce.", "The sponge became saturated with water after being left in the sink."],
+"Savor": ["She savored each bite of the decadent chocolate cake.", "As the sun set, they sat on the porch and savored the peaceful moment.", "The chef encouraged diners to savor the complex flavors of the dish."],
+"Shard": ["A single sharp shard of glass gleamed in the sunlight.", "The ancient mosaic was made up of colorful ceramic shards.", "She carefully collected the pottery shards, hoping to reconstruct the ancient artifact."],
 "Solicitous": ["He was solicitous of her needs, always offering assistance.", "Her solicitous nature made her a favorite among friends in times of trouble.", "Solicitous gestures from colleagues helped ease the stress of a busy workday."],
 "Soporific": ["The professor's monotone voice had a soporific effect on the students during the lecture.", "The soothing music had a soporific quality that helped her fall asleep quickly.", "The warm, dimly lit room had a soporific atmosphere, lulling everyone into relaxation."],
 "Specious": ["The argument seemed strong at first, but upon closer examination, it was deemed specious.", "Her specious reasoning failed to convince the skeptical audience.", "The advertisement relied on specious claims to promote the product."],
-"Stinted": ["He never stinted on effort when it came to pursuing his goals.", "Despite financial constraints, she never stinted on providing for her family.", "The chef never stinted on the quality of ingredients used in his dishes."],
-"Stipulated": ["The contract clearly stipulated the terms and conditions of the agreement.", "Before starting the project, they stipulated the deadlines for each phase.", "The rental agreement stipulated that pets were not allowed in the apartment."],
+"Stint": ["He never stinted on effort when it came to pursuing his goals.", "Despite financial constraints, she never stinted on providing for her family.", "The chef never stinted on the quality of ingredients used in his dishes."],
+"Stipulate": ["The contract clearly stipulated the terms and conditions of the agreement.", "Before starting the project, they stipulated the deadlines for each phase.", "The rental agreement stipulated that pets were not allowed in the apartment."],
 "Stolid": ["His stolid expression rarely revealed his true emotions.", "In the face of adversity, she remained stolid and composed.", "The detective's stolid demeanor concealed his keen observational skills."]
 
         };
@@ -438,9 +455,9 @@ function shuffleArray(array) {
 
 
 let currentClickedWord = null; // Variable to store the last clicked word
+const sentencesContainer = document.querySelector(".sentences");
 
 function toggleSentences(word) {
-    const sentencesContainer = document.querySelector(".sentences");
     const sentencesParagraph = document.querySelector(".sentences p");
 
     if (vocabularySentences[word]) {
@@ -460,15 +477,11 @@ function toggleSentences(word) {
                 sentencesContainer.style.display = "block";
                 sentencesParagraph.innerHTML = vocabularySentences[word].map(sentence => `<span class="sentence">${sentence}</span>`).join('<br>');
 
-                // Create or update the "More..." button
+                // Create or update the "More..." buttons
                 if (currentClickedWord !== word) {
                     currentClickedWord = word;
                     removeAllMoreButtons(); // Remove any existing "More..." buttons
-
-                    const moreButton = document.createElement("button");
-                    moreButton.textContent = "More...";
-                    moreButton.addEventListener("click", () => redirectToDictionary(word));
-                    sentencesContainer.appendChild(moreButton);
+                    createMoreButtons(word);
                 }
             } else {
                 sentencesContainer.style.display = "none";
@@ -477,15 +490,34 @@ function toggleSentences(word) {
     }
 }
 
+function createMoreButtons(word) {
+    const dictionaries = [
+        { name: "Oxford Dictionary", url: "https://www.oxfordlearnersdictionaries.com/definition/english/" },
+        { name: "Cambridge Dictionary", url: "https://dictionary.cambridge.org/dictionary/english/" },
+        { name: "Longman Dictionary", url: "https://www.ldoceonline.com/dictionary/" },
+        { name: "Merriam-Longman Dictionary", url: "https://www.merriam-webster.com/dictionary/" },
+        { name: "Bangla Dictionary", url: "https://www.dictionarybd.com/meaning/"}
+    ];
+
+    dictionaries.forEach(dictionary => {
+        const moreButton = document.createElement("button");
+        moreButton.textContent = `${dictionary.name}`;
+        moreButton.addEventListener("click", () => redirectToDictionary(word, dictionary.url));
+        sentencesContainer.appendChild(moreButton);
+    });
+}
+
+// Rest of your code...
+
 function removeAllMoreButtons() {
     const existingMoreButtons = document.querySelectorAll(".sentences button");
     existingMoreButtons.forEach(button => button.remove());
 }
 
-function redirectToDictionary(word) {
-    let dictionaryURL = `https://www.oxfordlearnersdictionaries.com/definition/english/${word.toLowerCase()}?q=${word.toLowerCase()}`;
-    window.open(dictionaryURL, '_blank');
+function redirectToDictionary(word, dictionaryURL) {
+    window.open(`${dictionaryURL}${word.toLowerCase()}?q=${word.toLowerCase()}`, '_blank');
 }
+
 
 
 // Display the sentences container
