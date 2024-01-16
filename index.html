@@ -234,7 +234,7 @@ body.night-mode #generateButton, {
             <button id="copyButton" onclick="copyVocabulary()">Copy</button>
             <button id="nightModeButton" onclick="toggleNightMode()">Mode</button>
         </div>
-        <h1>320 Vocabulary Practice</h1>
+        <h1>330 Vocabulary Practice</h1>
         <form id="vocabularyForm">
             <label for="numberOfWords">How many Vocabulary words do you want to practice?</label>
             <input type="number" id="numberOfWords" placeholder="Enter a number" required>
@@ -269,7 +269,7 @@ body.night-mode #generateButton, {
             "Fierce", "Heyday", "Opaque", "Prior", "Viable", "Ardent", "Conceal", "Redoubtable", "Despicable", "Inflate",
             "Complaisance", "Quell", "Indigenous", "Impervious", "Yearn", "Plead", "Knave", "Abeyance", "Abstemious", "Abscond",
             "Alacrity", "Attenuate", "Amalgamate", "Ambivalence", "Ameliorate", "Analogous", "Propitiate", "Apprise", "Approbation", "Arduous", "Ascetic",
-            "Assiduous", "Banal","Bolster","Bombastic","Boorish","Capricious","Caustic","Chicanery","Coagulate","Cogent","Coherent","Commensurate","Condone","Confound","Connoisseur","Contrite","Converge","Convoluted","Craven","Daunt","Decorum","Deference", "Delineate", "Denigrate", "Facetious", "Derivative", "Desiccate", "Desultory", "Deterrent", "Invective", "Dichotomy","Diffidence", "Diffuse", "Discerning", "Dissonance", "Discrete", "Dissemble", "Disseminate", "Dissolution", "Distend", "Divest","Dogmatic", "Dormant", "Dupe", "Eclectic", "Embellish", "Emulate", "Endemic", "Enervate", "Engender", "Equivocate","Erudite", "Esoteric", "Exculpate", "Facilitate", "Fawning", "Felicitous", "Fervor", "Lassitude", "Fledgling", "Foment","Forestall", "Futile", "Refute", "Goad", "Gregarious","Maverick","Impair", "Phlegmatic", "Implacable", "Implicit","Inadvertently", "Inchoate", "Indigence", "Indolent", "Propensity", "Insinuate", "Insularity", "Inundate", "Inured", "Irascible","Irresolute", "Levee", "Levity", "Lucid", "Malingerer", "Mendacious", "Metamorphosis", "Meticulous", "Neophyte", "Obviate","Occlude", "Officious", "Opprobrious", "Oscillate", "Ostentatious", "Paragon", "Partisan", "Pedantic", "Pervasive", "Plummet","Preamble", "Precarious", "Precipitate", "Precursor", "Presumptuous", "Pristine", "Probity", "Prodigal", "Profound", "Proliferate", "Proscribe", "Recant", "Relegate", "Reprobate", "Resolution", "Reticent", "Reverent", "Sage", "Salubrious", "Sanction", "Satiate", "Saturate", "Savor", "Shard", "Solicitous", "Soporific", "Specious", "Stint", "Stipulate", "Stolid", "Strut", "Subpoena", "Subside", "Substantiate", "Supersede", "Supposition", "Tangential", "Tirade", "Tortuous", "Truculence"
+            "Assiduous", "Banal","Bolster","Bombastic","Boorish","Capricious","Caustic","Chicanery","Coagulate","Cogent","Coherent","Commensurate","Condone","Confound","Connoisseur","Contrite","Converge","Convoluted","Craven","Daunt","Decorum","Deference", "Delineate", "Denigrate", "Facetious", "Derivative", "Desiccate", "Desultory", "Deterrent", "Invective", "Dichotomy","Diffidence", "Diffuse", "Discerning", "Dissonance", "Discrete", "Dissemble", "Disseminate", "Dissolution", "Distend", "Divest","Dogmatic", "Dormant", "Dupe", "Eclectic", "Embellish", "Emulate", "Endemic", "Enervate", "Engender", "Equivocate","Erudite", "Esoteric", "Exculpate", "Facilitate", "Fawning", "Felicitous", "Fervor", "Lassitude", "Fledgling", "Foment","Forestall", "Futile", "Refute", "Goad", "Gregarious","Maverick","Impair", "Phlegmatic", "Implacable", "Implicit","Inadvertently", "Inchoate", "Indigence", "Indolent", "Propensity", "Insinuate", "Insularity", "Inundate", "Inured", "Irascible","Irresolute", "Levee", "Levity", "Lucid", "Malingerer", "Mendacious", "Metamorphosis", "Meticulous", "Neophyte", "Obviate","Occlude", "Officious", "Opprobrious", "Oscillate", "Ostentatious", "Paragon", "Partisan", "Pedantic", "Pervasive", "Plummet","Preamble", "Precarious", "Precipitate", "Precursor", "Presumptuous", "Pristine", "Probity", "Prodigal", "Profound", "Proliferate", "Proscribe", "Recant", "Relegate", "Reprobate", "Resolution", "Reticent", "Reverent", "Sage", "Salubrious", "Sanction", "Satiate", "Saturate", "Savor", "Shard", "Solicitous", "Soporific", "Specious", "Stint", "Stipulate", "Stolid", "Strut", "Subpoena", "Subside", "Substantiate", "Supersede", "Supposition", "Tangential", "Tirade", "Tortuous", "Truculence","Vacillate", "Veracious", "Viscous", "Vituperate", "Volatile", "Wary", "Welter", "Whimsical", "Zealot", "Docile"
         ];
 
         const vocabularySentences = {
@@ -413,7 +413,26 @@ body.night-mode #generateButton, {
 "Tangential": ["The professor went off on a tangential explanation, but it was still relevant to the topic.", "Her comments seemed tangential at first, but they provided valuable insights.", "Despite being tangential to the main plot, the subplot added depth to the story."],
 "Tirade": ["He launched into a tirade, expressing his frustration with the current situation.", "The manager's tirade against inefficiency motivated the team to improve.", "Her tirade echoed through the room, leaving a tense atmosphere in its wake."],
 "Tortuous": ["The mountain road was tortuous, with numerous twists and turns.", "Navigating the bureaucratic process was a tortuous ordeal.", "The detective faced a tortuous investigation, unraveling a complex web of clues."],
-"Truculence": ["His truculence in negotiations earned him a reputation as a tough negotiator.", "The team's truculence on the field intimidated their opponents.", "Dealing with the truculence of the opposing party made the negotiation challenging."]
+"Truculence": ["His truculence in negotiations earned him a reputation as a tough negotiator.", "The team's truculence on the field intimidated their opponents.", "Dealing with the truculence of the opposing party made the negotiation challenging."],
+"Vacillate": ["She seemed to vacillate between two conflicting decisions, unsure of the right path.", "His vacillating opinions on the matter left everyone puzzled.", "The political leader continued to vacillate on key policy issues."],
+
+"Veracious": ["Known for being veracious, he never exaggerated his achievements.", "The veracious journalist sought to uncover the truth behind the scandal.", "Her veracious nature earned her the trust of those around her."],
+
+"Viscous": ["The viscous liquid slowly oozed down the sides of the container.", "The chef struggled to pour the viscous sauce evenly over the dish.", "In the cold weather, the motor oil became more viscous."],
+
+"Vituperate": ["During the heated argument, he chose to vituperate his opponent with harsh words.", "Public figures often have to endure vituperative comments from critics.", "It's more productive to engage in constructive dialogue than to vituperate others."],
+
+"Volatile": ["The volatile stock market kept investors on edge.", "Their relationship was so volatile, marked by frequent ups and downs.", "Dealing with volatile chemicals requires careful handling and storage."],
+
+"Wary": ["She remained wary of strangers, always prioritizing her safety.", "Being wary of potential scams, he double-checked the authenticity of the email.", "A wary approach to new technologies can help avoid unforeseen risks."],
+
+"Welter": ["In the aftermath of the storm, the town was in a welter of destruction.", "The welter of conflicting opinions made it difficult to reach a consensus.", "The political situation resulted in a welter of conflicting news reports."],
+
+"Whimsical": ["Her artwork was characterized by whimsical designs and vibrant colors.", "The author's whimsical writing style captivated readers of all ages.", "The garden was filled with whimsical sculptures and playful elements."],
+
+"Zealot": ["The political zealot was unwavering in his support for the cause.", "Avoiding extremism is crucial, as zealots often resist compromise.", "She was seen as a zealot for her dedication to environmental activism."],
+
+"Docile": ["The docile puppy quickly adapted to its new home.", "Her docile demeanor made her easy to work with in a team.", "While typically docile, the wild animal displayed unusual aggression."]
         };
 
 // Function to generate and display random vocabulary with sentences
