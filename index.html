@@ -240,7 +240,7 @@ body.night-mode #generateButton, {
          
         <form id="vocabularyForm">
             <label for="numberOfWords">How many Vocabulary words do you want to practice?</label>
-            <input type="number" id="numberOfWords" placeholder="Enter a number" required>
+              <input type="text" id="numberOfWords" placeholder="Enter a number or range (e.g., 1-4)" required>
             <input type="button" value="Generate" id="generateButton" onclick="generateWords()">
         </form>
         <!-- Container for displaying the result -->
@@ -539,38 +539,65 @@ body.night-mode #generateButton, {
 // Function to generate and display random vocabulary with sentences
 function generateWords() {
     const numberOfWordsInput = document.getElementById("numberOfWords");
-    const numberOfWords = parseInt(numberOfWordsInput.value);
+    const inputText = numberOfWordsInput.value.trim();
+    const resultContainer = document.getElementById("resultContainer");
 
-    if (!isNaN(numberOfWords) && numberOfWords > 0) {
-        const resultContainer = document.getElementById("resultContainer");
-        resultContainer.innerHTML = ""; // Clear previous results
+    // Updated regular expression to make parentheses optional
+    const rangePattern = /^(\()?(\d+)-(\d+)(\))?$/;
 
-        if (numberOfWords > vocabularyList.length) {
-            alert("Please enter a number less than or equal to the available vocabulary amount.");
-            return;
+    if (rangePattern.test(inputText)) {
+        const match = inputText.match(rangePattern);
+        const start = parseInt(match[2]);
+        const end = parseInt(match[3]);
+
+        if (!isNaN(start) && !isNaN(end) && start > 0 && end <= vocabularyList.length && start <= end) {
+            resultContainer.innerHTML = ""; // Clear previous results
+
+            for (let i = start; i <= end; i++) {
+                const wordElement = document.createElement("span");
+                wordElement.classList.add("generated-word");
+                const position = i;
+                wordElement.textContent = `${position}. ${vocabularyList[i - 1]}`;
+                wordElement.addEventListener("click", () => toggleSentences(vocabularyList[i - 1]));
+                resultContainer.appendChild(wordElement);
+            }
+        } else {
+            alert("Invalid range. Please enter a valid range within the vocabulary list length.");
         }
-
-        const uniqueWords = new Set();
-
-        while (uniqueWords.size < numberOfWords) {
-            const randomIndex = Math.floor(Math.random() * vocabularyList.length);
-            uniqueWords.add(vocabularyList[randomIndex]);
-        }
-
-        const orderedWords = Array.from(uniqueWords).sort((a, b) => {
-            return vocabularyList.indexOf(a) - vocabularyList.indexOf(b);
-        });
-
-        orderedWords.forEach((word, index) => {
-            const wordElement = document.createElement("span");
-            wordElement.classList.add("generated-word");
-            const position = vocabularyList.indexOf(word) + 1;
-            wordElement.textContent = `${position}. ${word}`;
-            wordElement.addEventListener("click", () => toggleSentences(word));
-            resultContainer.appendChild(wordElement);
-        });
     } else {
-        alert("Please enter a valid number greater than 0.");
+        // Handle the case when the input is a single number (current functionality)
+        const numberOfWords = parseInt(inputText);
+
+        if (!isNaN(numberOfWords) && numberOfWords > 0) {
+            resultContainer.innerHTML = ""; // Clear previous results
+
+            if (numberOfWords > vocabularyList.length) {
+                alert("Please enter a number less than or equal to the available vocabulary amount.");
+                return;
+            }
+
+            const uniqueWords = new Set();
+
+            while (uniqueWords.size < numberOfWords) {
+                const randomIndex = Math.floor(Math.random() * vocabularyList.length);
+                uniqueWords.add(vocabularyList[randomIndex]);
+            }
+
+            const orderedWords = Array.from(uniqueWords).sort((a, b) => {
+                return vocabularyList.indexOf(a) - vocabularyList.indexOf(b);
+            });
+
+            orderedWords.forEach((word, index) => {
+                const wordElement = document.createElement("span");
+                wordElement.classList.add("generated-word");
+                const position = vocabularyList.indexOf(word) + 1;
+                wordElement.textContent = `${position}. ${word}`;
+                wordElement.addEventListener("click", () => toggleSentences(word));
+                resultContainer.appendChild(wordElement);
+            });
+        } else {
+            alert("Please enter a valid number greater than 0 or a valid range (start-end).");
+        }
     }
 }
 
