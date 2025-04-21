@@ -1,6 +1,6 @@
 <!-- 
 Author   : Plabon kumer Sarker
-Contacts : linktree.com/noncsdude
+Conhttps://plabonkumersarker.github.io/profile
 Happy Learning!
 -->
 <!DOCTYPE html>
@@ -24,6 +24,13 @@ Happy Learning!
     }
 
     /* Add any other necessary adjustments */
+}
+
+@media (max-width: 768px) {
+    .dictionary-iframe {
+        height: 300px;
+        max-width: 95%;
+    }
 }
         body {
             font-family: 'Arial', sans-serif;
@@ -228,6 +235,45 @@ body.night-mode #generateButton, {
     color: #fff;
     border:none;
 }
+#iframeContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dictionary-iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  padding: 6px 0;
+  background-color: rgba(255, 255, 255, 0.8); /* subtle glassy background */
+  color: #777;
+  border-top: 1px solid #ccc;
+  z-index: 999;
+  backdrop-filter: blur(5px); /* elegant blur effect */
+}
+
+.sticky-footer a {
+  color: #555;
+  text-decoration: none;
+}
+
+.sticky-footer a:hover {
+  text-decoration: underline;
+}
     </style>
 </head>
 <body>
@@ -249,8 +295,11 @@ body.night-mode #generateButton, {
             <p></p>
             </div>
             <div class="more-buttons"></div>
-
+            <div id="iframeContainer"></div>
     </div>
+<footer class="sticky-footer">
+  &copy; 2025 <a href="https://plabonkumersarker.github.io/profile/" target="_blank">Plabon Kumer Sarker</a>
+</footer>
     <script>
         // List of vocabulary
         const vocabularyList = [
@@ -273,7 +322,7 @@ body.night-mode #generateButton, {
             "Complaisance", "Quell", "Indigenous", "Impervious", "Yearn", "Plead", "Knave", "Abeyance", "Abstemious", "Abscond",
             "Alacrity", "Attenuate", "Amalgamate", "Ambivalence", "Ameliorate", "Analogous", "Propitiate", "Apprise", "Approbation", "Arduous", "Ascetic",
             "Assiduous", "Banal","Bolster","Bombastic","Boorish","Capricious","Caustic","Chicanery","Coagulate","Cogent","Coherent","Commensurate","Condone","Confound","Connoisseur","Contrite","Converge","Convoluted","Craven","Daunt","Decorum","Deference", "Delineate", "Denigrate", "Facetious", "Derivative", "Desiccate", "Desultory", "Deterrent", "Invective", "Dichotomy","Diffidence", "Diffuse", "Discerning", "Dissonance", "Discrete", "Dissemble", "Disseminate", "Dissolution", "Distend", "Divest","Dogmatic", "Dormant", "Dupe", "Eclectic", "Embellish", "Emulate", "Endemic", "Enervate", "Engender", "Equivocate","Erudite", "Esoteric", "Exculpate", "Facilitate", "Fawning", "Felicitous", "Fervor", "Lassitude", "Fledgling", "Foment","Forestall", "Futile", "Refute", "Goad", "Gregarious","Maverick","Impair", "Phlegmatic", "Implacable", "Implicit","Inadvertently", "Inchoate", "Indigence", "Indolent", "Propensity", "Insinuate", "Insularity", "Inundate", "Inured", "Irascible","Irresolute", "Levee", "Levity", "Lucid", "Malingerer", "Mendacious", "Metamorphosis", "Meticulous", "Neophyte", "Obviate","Occlude", "Officious", "Opprobrious", "Oscillate", "Ostentatious", "Paragon", "Partisan", "Pedantic", "Pervasive", "Plummet","Preamble", "Precarious", "Precipitate", "Precursor", "Presumptuous", "Pristine", "Probity", "Prodigal", "Profound", "Proliferate", "Proscribe", "Recant", "Relegate", "Reprobate", "Resolution", "Reticent", "Reverent", "Sage", "Salubrious", "Sanction", "Satiate", "Saturate", "Savor", "Shard", "Solicitous", "Soporific", "Specious", "Stint", "Stipulate", "Stolid", "Strut", "Subpoena", "Subside", "Substantiate", "Supersede", "Supposition", "Tangential", "Tirade", "Tortuous", "Truculence","Vacillate", "Veracious", "Viscous", "Vituperate", "Volatile", "Wary", "Welter", "Whimsical", "Zealot", "Docile", "Aberrant", "Admonish", "Aggregate", "Alleviate", "Anachronism", "Anarchy", "Appease", "Artless", "Assuage", "Belie","Beneficent", "Burnish", "Buttress", "Catalyst", "Coda", "Compendium", "Complaisant", "Compliant", "Conciliatory", "Contention","Conundrum", "Default", "Deride", "Digression", "Dirge", "Disabuse", "Discordant", "Discrepancy", "Disingenuous", "Disinterested","Disparage", "Disparate", "Distill", "Diverge", "Ebullient", "Efficacy", "Empirical", "Equanimity", "Exacerbate", "Extrapolation","Fallacious", "Fatuous", "Flagrant", "Gainsay", "Garrulous", "Gouge", "Grandiloquent", "Guileless", "Gullible", "Harangue","Iconoclastic", "Idolatry", "Immutable", "Impassive", "Impermeable", "Imperturbable", "Implode", "Incongruity", "Incorporate", "Inert", "Ingenuous", "Inherent", "Itinerary", "Latent", "Malleable", "Misanthrope", "Mollify", "Morose", "Mundane", "Negate","Obsequious", "Onerous", "Opprobrium", "Paucity", "Penury", "Perennial", "Perfunctory", "Permeable", "Piety", "Placate", "Porous", "Prevaricate", "Propriety", "Pungent", "Qualified", "Quibble", "Rarefied", "Recluse", "Refractory", "Reproach","Repudiate", "Resolve", "Secrete", "Skeptic", "Striated", "Torpor","Aberration", "Abstain", "Abstruse", "Adamant", "Admonitory", "Aesthete", "Aesthetic", "Ambiguous", "Ambivalent", "Amenable", "Amorphous", "Anomalous", "Antipathy", "Antithetical","Apathetic", "Apocryphal", "Arbitrary", "Arcane", "Artful", "Askance", "Audacious", "Audacity", "Austere", "Avaricious","Banality", "Betray", "Blatant", "Brazen", "Bucolic", "Bumbling", "Calumny", "Chastise", "Chortle", "Circumscribe"
-        ];
+];
 
         const vocabularySentences = {
             "Brusque": ["He responded in a brusque manner, cutting the conversation short.", "Her brusque tone surprised everyone in the room.", "Despite his brusque exterior, he was kind-hearted."],
@@ -571,7 +620,7 @@ function generateWords() {
     const inputText = numberOfWordsInput.value.trim();
     const resultContainer = document.getElementById("resultContainer");
 
-    // Updated regular expression to make parentheses optional
+    // regular expression to make parentheses optional
     const rangePattern = /^(\()?(\d+)-(\d+)(\))?$/;
 
     if (rangePattern.test(inputText)) {
@@ -644,6 +693,7 @@ const sentencesContainer = document.querySelector(".sentences");
 
 function toggleSentences(word) {
     const sentencesParagraph = document.querySelector(".sentences p");
+    const iframeContainer = document.getElementById("iframeContainer");
 
     if (vocabularySentences[word]) {
         const currentWordElement = Array.from(document.querySelectorAll(".generated-word"))
@@ -652,6 +702,7 @@ function toggleSentences(word) {
         if (currentWordElement) {
             const isSameWord = currentWordElement.classList.contains("clicked");
 
+            // Remove "clicked" class from all words
             document.querySelectorAll(".generated-word").forEach(element => {
                 element.classList.remove("clicked");
             });
@@ -659,17 +710,25 @@ function toggleSentences(word) {
             if (!isSameWord) {
                 currentWordElement.classList.add("clicked");
 
+                // Show sentences
                 sentencesContainer.style.display = "block";
                 sentencesParagraph.innerHTML = vocabularySentences[word].map(sentence => `<span class="sentence">${sentence}</span>`).join('<br>');
 
-                // Create or update the "More..." buttons
+                // Clear iframe (if switching to a new word)
+                iframeContainer.innerHTML = "";
+
+                // Remove and recreate dictionary buttons
                 if (currentClickedWord !== word) {
                     currentClickedWord = word;
-                    removeAllMoreButtons(); // Remove any existing "More..." buttons
+                    removeAllMoreButtons();
                     createMoreButtons(word);
                 }
             } else {
+                // Clicking the same word again - hide everything
                 sentencesContainer.style.display = "none";
+                iframeContainer.innerHTML = "";
+                removeAllMoreButtons();
+                currentClickedWord = null;
             }
         }
     }
@@ -681,18 +740,22 @@ function createMoreButtons(word) {
         { name: "Cambridge Dictionary", url: "https://dictionary.cambridge.org/dictionary/english/" },
         { name: "Longman Dictionary", url: "https://www.ldoceonline.com/dictionary/" },
         { name: "Merriam-Longman Dictionary", url: "https://www.merriam-webster.com/dictionary/" },
-        { name: "Bangla Dictionary", url: "https://www.dictionarybd.com/meaning/"}
+        { name: "Bangla Dictionary", url: "https://www.dictionarybd.com/meaning/" }
     ];
 
     dictionaries.forEach(dictionary => {
         const moreButton = document.createElement("button");
         moreButton.textContent = `${dictionary.name}`;
-        moreButton.addEventListener("click", () => redirectToDictionary(word, dictionary.url));
+        moreButton.addEventListener("click", () => {
+            if (dictionary.name === "Bangla Dictionary") {
+                showDictionaryInIframe(word, dictionary.url);  // Show in iframe
+            } else {
+                redirectToDictionary(word, dictionary.url);  // Open in new tab
+            }
+        });
         sentencesContainer.appendChild(moreButton);
     });
 }
-
-// Rest of your code...
 
 function removeAllMoreButtons() {
     const existingMoreButtons = document.querySelectorAll(".sentences button");
@@ -703,14 +766,39 @@ function redirectToDictionary(word, dictionaryURL) {
     window.open(`${dictionaryURL}${word.toLowerCase()}?q=${word.toLowerCase()}`, '_blank');
 }
 
+function showDictionaryInIframe(word, dictionaryURL) {
+    const iframe = document.createElement('iframe');
+    iframe.src = `${dictionaryURL}${word.toLowerCase()}?q=${word.toLowerCase()}`;
+    iframe.className = 'dictionary-iframe';
 
+    const iframeContainer = document.getElementById("iframeContainer");
+    iframeContainer.innerHTML = ''; // Remove old iframe
+    iframeContainer.appendChild(iframe);
+}
 
 // Display the sentences container
 if (!isSameWord) {
-    // Display the first sentence
+    currentWordElement.classList.add("clicked");
+
+    // Show sentences
+    sentencesContainer.style.display = "block";
     sentencesParagraph.innerHTML = vocabularySentences[word].map(sentence => `<span class="sentence">${sentence}</span>`).join('<br>');
+
+    // Clear iframe if a new word is selected
+    const iframeContainer = document.getElementById("iframeContainer");
+    iframeContainer.innerHTML = "";
+
+    // Remove and recreate dictionary buttons
+    if (currentClickedWord !== word) {
+        currentClickedWord = word;
+        removeAllMoreButtons();
+        createMoreButtons(word);
+    }
 } else {
+    // Hide everything on second click
     sentencesContainer.style.display = "none";
+    document.getElementById("iframeContainer").innerHTML = "";
+    currentClickedWord = null;
 }
 
 // Display the sentences container
